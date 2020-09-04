@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateInfluencersTable extends Migration
 {
+    
     /**
      * Run the migrations.
      *
