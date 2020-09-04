@@ -28,6 +28,7 @@ class CreateInfluencersTable extends Migration
         });
     }
 
+
     /**
      * Reverse the migrations.
      *
