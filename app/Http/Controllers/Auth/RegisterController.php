@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'name' => ['required'],
             'tell' => ['required'],
             'address_mail' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'url_prl' => ['required'],
+            'url_pr' => ['required'],
             'body' => ['required'],
         ]);
     }
