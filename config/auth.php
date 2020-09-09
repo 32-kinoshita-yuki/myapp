@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'influencers',//usersからinfluencersに変更
     ],
 
     /*
@@ -38,16 +38,17 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'influencers', //usersからinfluencersに変更
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'influencers', //usersからinfluencersに変更
             'hash' => false,
         ],
-    ],
-
+      
+       
+     ],
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -66,9 +67,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'influencers' => [ //usersからinfluencersに変更
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Influencer::class,// App\UsersからApp\Influencerに変更
         ],
 
         // 'users' => [
@@ -94,10 +95,10 @@ return [
 
     'passwords' => [
         'users' => [
-            'provider' => 'users',
+            'provider' => 'influencers',//usersからinfluencersに変更
             'table' => 'password_resets',
             'expire' => 60,
         ],
-    ],
+     ],
 
 ];

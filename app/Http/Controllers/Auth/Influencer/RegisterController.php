@@ -6,7 +6,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers; /* 依頼者：requester　登録  */
+use Illuminate\Foundation\Auth\Influencer\RegistersUsers;/* インフルエンサー：influencer　登録  */
+
 class RegisterController extends Controller
 {
     /*
@@ -50,13 +51,13 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'id' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'company_name' => ['required'],
-            'url_company' => ['required'],
             'name' => ['required'],
-            'tell' => ['required'],
-            'address_mail' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'url_prl' => ['required'],
-            'body' => ['required'],
+            'address_mail' =>  ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'tel_num' => ['required'],
+            'address' => ['required'],
+            'sns_kind' => ['required'],
+            'sns_url' => ['required'],
+            'sns_genre' => ['required'],
         ]);
     }
 
@@ -68,16 +69,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        return Influencer::create([
             'id' =>  Hash::make($data['id']),
             'password' => Hash::make($data['password']),
-            'company_name' => $data['company_name'],
-            'url_company' => $data['url_company'],
             'name' => $data['name'],
-            'tell' => $data['tell'],
+            'age' => $data['age'],
+            'gender' => $data['gender'],
             'address_mail' => $data['address_mail'],
-            'url_pr' => $data['url_pr'],
-            'body' => $data['body'],
+            'tel_num' => $data['tel_num'],
+            'address' => $data['address'],
+            'sns_kind' => $data['sns_kind'],
+            'sns_url' => $data['sns_url'],
+            'sns_genre' => $data['sns_genre'],
+      
         ]);
     }
 }
